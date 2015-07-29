@@ -42,11 +42,11 @@ describe('Contact List App', function() {
   });
 
   it('should order correctly by Last Name', function() {
-    element(by.model('query')).sendKeys('S');
+    element(by.model('query')).sendKeys('L');
     element(by.cssContainingText('option', 'Last Name')).click();
     element.all(by.repeater('contact in contacts')).then(function(contacts) {
-      expect(contacts[0].element(by.className('first')).getText()).toEqual("Shannon");
-      expect(contacts[1].element(by.className('first')).getText()).toEqual("Samantha");
+      expect(contacts[0].element(by.className('first')).getText()).toEqual("Liane");
+      expect(contacts[1].element(by.className('first')).getText()).toEqual("Len");
     });
   });
 

@@ -6,7 +6,9 @@
 
 var contactListApp = angular.module('contactListApp', [
   'ngRoute',
-  'contactControllers'
+  'contactControllers',
+  'contactListFilters',
+  'contactListServices'
 ]);
 
 contactListApp.config(['$routeProvider',

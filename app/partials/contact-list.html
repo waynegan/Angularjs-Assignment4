@@ -3,35 +3,48 @@
     <div class="row">
       <div class="col-md-2">
         <!--Sidebar content-->
+<div class="container">
+<div class="page-header">
+   <h1>ContactList
+      <small>IPRC professor</small>
+   </h1>
+</div>
 
-        Search: <input ng-model="query">
+        Search: <input ng-model="query"  class="form-control" id="usr">
         Sort by:
-        <select ng-model="orderProp">
+        <select ng-model="orderProp" class="form-control">
             <option value="first">First Name</option>
 			<option value="last">Last Name</option>
 			<option value="extension">Extension</option>
         </select>
 
-      </div>
-	  <table>
-  <tr>
-  <th>IMG</th>
-    <th>First Name</th>
-    <th>Last Name</th>
-    <th>E-Mail</th>
-    <th>Phone Number</th>
-  </tr>
-  <tr ng-repeat="contact in contacts | filter:query | orderBy:orderProp" class="contact">
+      
+	  <div class="panel panel-default">
+	  
+  <br>
+	  
+	  <table class="table" >
+	  
+		<tr>
+  
+		<th data-field="id">IMG</th>
+		<th data-field="name" data-formatter="nameFormatter">First Name</th>
+		<th data-field="name">Last Name</th>
+		<th>E-Mail</th>
+		<th>Phone Number</th>
+		</tr>
+ 
+		<tr ng-repeat="contact in contacts | filter:query | orderBy:orderProp" class="contact">
  <td> <a href="#/contacts/{{contact.id}}" class="thumb"><img ng-src="{{contact.imageUrl}}"></a></td>
     <td class='first'><a href="#/contacts/{{contact.id}}">{{contact.first}}</a></td>
     <td class='last'><a href="#/contacts/{{contact.id}}">{{contact.last}}</a></td>
-    <td class='email'><a href="mailto:{{contact.first+'.'+contact.last+'@lambtoncollege.ca'
-    }}">{{contact.first+'.'+contact.last+'@lambtoncollege.ca' }}</a></td>
-    <td class='phone'>{{'519-542-7751 ext. ' + contact.extension
-      }}</td>
+    <td class='email'><a href="mailto:{{contact.first+'.'+contact.last+'@lambtoncollege.ca'}}">{{contact.first+'.'+contact.last+'@lambtoncollege.ca' | sanitize }}</a></td>
+    <td class='phone'>{{'519-542-7751 ext. ' + contact.extension }}</td>
   </tr>
 </table>
-     
+</div>
+</div>
+     </div>
     </div>
   </div>
 
